@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+//responsive font
+html {
+    @media(max-width: 1080px) {
+      font-size: 93.75%;
+      //16*0,9373= 15px
+    }
+    @media(max-width: 768px) {
+      font-size: 87.5%;
+      //16*0,875 = 14px
+    }
+  }
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Lora&display=swap');
+
+:root{
+    --fontLora: 'Lora', serif;
+    --fontInter: 'Inter', sans-serif ;
+
+    --colorButton:#191523;
+    --bgMain: #262130;
+    --colorSecond:#4C4463;
+    --labelInt:#9A8AC8;
+    --primary:#22C26C;
+    --warning:#FFA319;
+    --complete:#00B2FF;
+    --labelText:#FFFFFF;
+    --inputColor:#373148;
+}
+
+body{
+    font-family: var(--fontInter);
+    background-color: var(--bgMain);
+    color:var(--labelText);
+}
+.pill{
+  border-radius: 3rem;
+  padding: 0.3rem 1.3rem;
+}
+a{
+  text-decoration: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+  /* Handle */
+::-webkit-scrollbar-thumb {
+background: #8a8a8a;
+border-radius: 10px;
+}
+
+
+
