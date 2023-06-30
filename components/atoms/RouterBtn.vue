@@ -25,6 +25,7 @@ export default Vue.extend({
     .containerRouters{
         display: flex;
         gap: 0.5rem;
+        align-items: center;
     }
     a{
         background-color: var(--colorButton);

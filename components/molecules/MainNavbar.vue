@@ -1,8 +1,7 @@
 <template>
-    
     <nav>
-        <TitleNavbar/>
-        <RouterBtn/>
+        <TitleNavbar />
+        <RouterBtn />
     </nav>
 </template>
 
@@ -13,7 +12,6 @@ export default Vue.extend({
     
 })
 </script>
-
 <style lang="scss" scoped>
     nav{
         display: flex;
@@ -26,5 +24,6 @@ export default Vue.extend({
         position: fixed;
         top: 0;
         left: 0;
+        padding: 0 6vw;
     }
 </style>

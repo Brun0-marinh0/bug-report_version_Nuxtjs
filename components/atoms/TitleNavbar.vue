@@ -3,7 +3,7 @@
         <div class="containerImg">
             <img src="@/static/icon/bugasIcon.png" alt="">
         </div>
-        <h1>bugas</h1>
+        <h2>bugas</h2>
     </div>
 </template>
 
@@ -18,15 +18,16 @@ export default Vue.extend({
 <style lang="scss" scoped>
     .titleNavbar{
         display: flex;
+        align-items: center;
         .containerImg{
-            min-width: 2rem;
+            min-width: 3rem;
             display: flex;
             align-items: center;
             img{
                 width: 100%;
             }
         }
-        h1{
+        h2{
             font-family: var(--fontLora);
             &:after{
                 content: '.';

@@ -1,14 +1,13 @@
 <!-- eslint-disable vue/attributes-order -->
 <template>
     <GridDefault>
-        
             <label for="email" class="col-3">
                 E-mail
                 <input type="email" name="" id="email">
             </label>
             <div class="container col-3">
                 <label for="title">
-                    Titulo
+                    Título
                     <input type="text" name="" id="title">
                 </label>
                 <label for="description">
@@ -22,9 +21,18 @@
                     <option v-for="service in services" :key="service.name">{{ service.name }}</option>
                 </select>
             </label>
-
-        <div class="frameImage col-4">
-            <input type="file" name="">
+        
+        <label for="file" :style="{background: bg} " class="frameImage col-4">
+            <img
+                v-if="urlImgPreview"
+                class="imgFile"
+                :src="urlImgPreview"
+                alt=""
+            />
+            <input id="file" type="file" name=""  accept="image/*" @change="fileMethods">
+        </label>
+        <div class="contenteButton">
+            <button>Enviar</button>
         </div>
     </GridDefault>
 </template>
@@ -38,8 +46,20 @@ export default Vue.extend({
             services:[
                 {name: 'Tuty Academy'},
                 {name: 'Portaria'}
-            ]
+            ],
+            urlImgFile:null,
+            urlImgPreview: '',
+            bg : ''
         }
+    },
+    methods:{
+        fileMethods(e: any) {
+            const file = e.target.files[0]
+            this.urlImgPreview = URL.createObjectURL(file)
+            this.urlImgFile = e.target.files[0]
+
+            this.bg = '#262130'
+        },
     }
 })
 </script>
@@ -50,6 +70,9 @@ export default Vue.extend({
     .col-4{
         grid-column: 7 / span 3;
         grid-row: 1 / span 3
+    }
+    .contenteButton{
+        grid-column: 4 / span 6;
     }
 </style>
 
@@ -89,12 +112,48 @@ export default Vue.extend({
                 background: none;
                 outline: none;
                 resize: none;
+                color: #f8f8f8;
+                padding: 0.3rem;
             }
         }
+    }
+    .urlImgPreview{
+        background: red;
     }
     .frameImage{
         width: 100%;
         height: 100%;
         border: 2px solid var(--inputColor);
+
+        background-image: url('../../static/icon/iconImg.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        overflow: hidden;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+        input{
+            display: none;
+        }
+    }
+
+    .contenteButton{
+        
+        border-top: 2px solid var(--colorSecond);
+        display: flex;
+        justify-content: flex-end;
+        padding: 1rem 0;
+
+        button{
+            background: var(--primary);
+            padding: 0.5rem 2rem;
+            color: var(--bgMain);
+            border: none;
+            font-weight: bold;
+        }
     }
 </style>
