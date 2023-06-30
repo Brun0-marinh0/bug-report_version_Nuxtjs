@@ -1,5 +1,6 @@
 <template>
   <div>
+    <LoadingPage/>
     <FormReport/>
   </div>
 </template>
