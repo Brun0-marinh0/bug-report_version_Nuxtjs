@@ -1,17 +1,17 @@
 <template>
     <div class="containerCard gridCard">
         <header>
-            <h3>SGI</h3>
-            <div class="status" ></div>
+            <h3>{{ myReport.system }}</h3>
+            <div class="status" :class="{done: myReport.done}"></div>
         </header>
         <div class="viewInform" :class="{showMe}">
             <div class="inform">
-                <h3>ffggg</h3>
+                <h3>{{ myReport.title }}</h3>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur. Purus hac eget sem non lectus eros ornare. Eu at lacus in aliquet mattis suspendisse mattis elementum. Nisi metus scelerisque semper dictum id. Egestas potenti nec facilisi arcu sagittis leo sed amet sit. Amet nunc consequat nunc neque tellus. Eu id ultricies tempus egestas. Eu lorem faucibus bibendum arcu dictum tincidunt non.
-                    Cursus quisque ac sit sodales. Lacinia mattis quam interdum congue scelerisque aliquam tortor elit. Mauris feugiat morbi eu augue. Nisi vulputate non velit morbi ipsum pretium amet. Lorem fermentum amet odio purus nisl. Orci velit euismod faucibus ut sed pretium vitae. Nisl est arcu donec nunc lectus pellentesque morbi. Felis non faucibus euismod lacus eget faucibus. Rhoncus malesuada sagittis morbi duis. Ipsum in ac fermentum id amet sed volutpat malesuada. Lacus sociis tristique dui risus aliquam nisl. A in integer blandit morbi convallis vitae maecenas. Porttitor blandit vel vulputate eget. Aliquet vel.
+                    {{ myReport.description }}
                 </p>
             </div>
+            
             <button>
                 <img src="@/static/icon/iconImgToView.svg" alt="">
                 Visualizar
@@ -27,6 +27,12 @@
 import Vue from 'vue'
 
 export default Vue.extend({
+    props:{
+        myReport:{
+            type: Object,
+            required: true
+        }
+    },
     data(){
         return{
             showMe: true
@@ -55,6 +61,9 @@ export default Vue.extend({
             h3{
                 color: var(--primary);
                 font-weight: lighter;
+            }
+            .done{
+                background: var(--complete);
             }
             .status{
                 width: 4rem;
