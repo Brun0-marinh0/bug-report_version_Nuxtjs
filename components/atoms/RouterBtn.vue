@@ -1,7 +1,7 @@
 <template>
     <div class="containerRouters">
         <div v-for="router in routers" :key="router.name">
-            <NuxtLink class="pill" to="">{{ router.name }}</NuxtLink>
+            <NuxtLink class="pill" :to="getLink(router.link)">{{ router.name }}</NuxtLink>
         </div>
     </div>
 </template>
@@ -13,9 +13,19 @@ export default Vue.extend({
     data(){
         return{
             routers:[
-                {name: 'Sobre', link: '/'},
-                {name: 'Historico', link: '/'}
+                {name: 'Sobre', link: 'about'},
+                {name: 'Historico', link: 'historic'}
             ]
+        }
+    },
+    methods:{
+        getLink(link: String){
+            if(link === 'about'){
+                return link
+            }
+            if(link === 'historic'){
+                return link
+            }
         }
     }
 })

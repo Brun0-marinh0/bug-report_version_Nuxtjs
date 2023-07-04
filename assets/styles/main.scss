@@ -56,5 +56,11 @@ background: #8a8a8a;
 border-radius: 10px;
 }
 
+button{
+  cursor: pointer;
+  border: none;
+}
 
-
+a.nuxt-link-exact-active{
+  color: #42b983;
+}

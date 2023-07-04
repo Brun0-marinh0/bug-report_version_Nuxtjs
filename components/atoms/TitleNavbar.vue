@@ -1,5 +1,5 @@
 <template>
-    <div class="titleNavbar">
+    <div class="titleNavbar" @click="home">
         <div class="containerImg">
             <img src="@/static/icon/bugasIcon.png" alt="">
         </div>
@@ -11,7 +11,11 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-    
+    methods:{
+        home(){
+            this.$router.push({ path: '/' })
+        }
+    }
 })
 </script>
 

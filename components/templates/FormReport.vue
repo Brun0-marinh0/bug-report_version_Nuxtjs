@@ -22,7 +22,7 @@
                 </select>
             </label>
         
-        <label for="file" :style="{background: bg} " class="frameImage col-4">
+        <label for="file" :style="{background: bg} " @click="loadingImg" class="frameImage col-4" :class="{loadingImage}">
             <img
                 v-if="urlImgPreview"
                 class="imgFile"
@@ -49,32 +49,32 @@ export default Vue.extend({
             ],
             urlImgFile:null,
             urlImgPreview: '',
-            bg : ''
+            bg : '',
+            loadingImage: false
         }
     },
     methods:{
         fileMethods(e: any) {
+            
             const file = e.target.files[0]
             this.urlImgPreview = URL.createObjectURL(file)
             this.urlImgFile = e.target.files[0]
 
+            this.loadingImage = false
+
             this.bg = '#262130'
         },
+        loadingImg(){
+            this.loadingImage = true
+
+            setTimeout(()=>{
+                this.loadingImage = false
+            }, 5000)
+        }
     }
 })
 </script>
-<style>
-    .col-3{
-        grid-column: 4 / span 3;
-    }
-    .col-4{
-        grid-column: 7 / span 3;
-        grid-row: 1 / span 3
-    }
-    .contenteButton{
-        grid-column: 4 / span 6;
-    }
-</style>
+
 
 <style lang="scss" scoped>
     label{
@@ -106,6 +106,7 @@ export default Vue.extend({
             input{
                 font-size: 1.3rem;
                 font-weight: lighter;
+                width: 100%;
             }
             textarea{
                 border: none;
@@ -119,6 +120,9 @@ export default Vue.extend({
     }
     .urlImgPreview{
         background: red;
+    }
+    .loadingImage{
+        background-image: url('../../static/bugasIconAnimate.gif')!important;
     }
     .frameImage{
         width: 100%;
