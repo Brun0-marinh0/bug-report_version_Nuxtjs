@@ -1,6 +1,6 @@
 <template>
     <GridHistoric>
-        <CardReport/>
+        <CardReport v-for="index in 10" :key="index"/>
     </GridHistoric>
 </template>
 

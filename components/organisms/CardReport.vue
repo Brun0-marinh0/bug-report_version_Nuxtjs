@@ -17,7 +17,7 @@
                 Visualizar
             </button>
         </div>
-        <div class="plus" @click="showMeInform">
+        <div class="plus" :class="{top: !showMe}" @click="showMeInform">
             <img src="@/static/icon/plusV.svg" alt="">
         </div>
     </div>
@@ -65,8 +65,8 @@ export default Vue.extend({
         }
         .viewInform{
             overflow: hidden;
-            height: auto;
-            transition: 0.5s;
+            height: 19rem;
+            transition: 0.2s ease-in-out;
             
             .inform{
                 display: grid;
@@ -98,6 +98,11 @@ export default Vue.extend({
             display: flex;
             justify-content: center;
             padding-top: 1rem;
+        }
+        .top{
+            img{
+                transform: rotateZ(180deg);
+            }
         }
     }
 </style>
