@@ -52,7 +52,7 @@ a{
 
   /* Handle */
 ::-webkit-scrollbar-thumb {
-background: #8a8a8a;
+background: var(--colorSecond);
 border-radius: 10px;
 }
 
@@ -62,5 +62,5 @@ button{
 }
 
 a.nuxt-link-exact-active{
-  color: #42b983;
+  color: #42b983 !important;
 }

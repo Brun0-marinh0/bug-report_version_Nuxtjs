@@ -23,8 +23,10 @@ export default Vue.extend({
     .titleNavbar{
         display: flex;
         align-items: center;
+        cursor: pointer;
+        min-height: 2rem;
         .containerImg{
-            min-width: 3rem;
+            min-width: 2rem;
             display: flex;
             align-items: center;
             img{

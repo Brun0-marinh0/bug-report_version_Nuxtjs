@@ -11,8 +11,15 @@
                     {{ myReport.description }}
                 </p>
             </div>
-            
-            <button>
+            <div v-show="popUp" class="popUp">
+                <div class="contentClose">
+                    <img src="@/static/icon/close.svg" alt="" @click="popUp = false">
+                </div>
+                <div class="contentImg">
+                    <img :src="`http://185.209.179.96:9800/${myReport.image_path}`" alt="">
+                </div>
+            </div>
+            <button @click="popUp = true">
                 <img src="@/static/icon/iconImgToView.svg" alt="">
                 Visualizar
             </button>
@@ -35,7 +42,8 @@ export default Vue.extend({
     },
     data(){
         return{
-            showMe: true
+            showMe: true,
+            popUp: false
         }
     },
     methods:{
@@ -63,7 +71,7 @@ export default Vue.extend({
                 font-weight: lighter;
             }
             .done{
-                background: var(--complete);
+                background: var(--complete) !important;
             }
             .status{
                 width: 4rem;
@@ -74,7 +82,7 @@ export default Vue.extend({
         }
         .viewInform{
             overflow: hidden;
-            height: 19rem;
+            height: fit-content;
             transition: 0.2s ease-in-out;
             
             .inform{
@@ -84,7 +92,7 @@ export default Vue.extend({
             }
         }
         .showMe{
-            height: 10rem;
+            height: 2.5rem;
             p{
                 -webkit-mask-image: linear-gradient(0deg, transparent 80px, red 280px);
             }
@@ -111,6 +119,37 @@ export default Vue.extend({
         .top{
             img{
                 transform: rotateZ(180deg);
+            }
+        }
+        .popUp{
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100vh;
+            z-index: 12;
+
+            display: grid;
+            place-content: center;
+            background: #2f2e31ab;
+            backdrop-filter: blur(3px);
+
+            .contentClose{
+                display: flex;
+                justify-content: flex-end;
+                padding: 0 1rem;
+                position: relative;
+                top: 2rem;
+            }
+
+            .contentImg{
+                height: max(30rem, 35vw);
+                
+                display: flex;
+                img{
+                    height: 100%;
+                }
             }
         }
     }

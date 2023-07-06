@@ -6,11 +6,12 @@
 <style lang="scss">
     .gridColumn{
         width: 100%;
+        height: 70vh;
         display: grid;
         grid-template: min-content 1fr min-content min-content / repeat(12, 1fr);
         gap: 1rem;
 
-        margin-top: 20vh;
+        margin-top: 15vh;
     }
 
     .col-3{
@@ -19,6 +20,10 @@
     .col-4{
         grid-column: 7 / span 3;
         grid-row: 1 / span 3
+    }
+    .col-btn{
+        grid-column: 7 / span 3;
+        grid-row: 3 / span 1
     }
     .contenteButton{
         grid-column: 4 / span 6;
@@ -35,6 +40,10 @@
             grid-column: 5 / span 3;
             grid-row: 1 / span 3
         }
+        .col-btn{
+            grid-column: 5 / span 3;
+            grid-row: 3 / span 1
+        }
         .contenteButton{
             grid-column: 2 / span 6;
         }
@@ -45,6 +54,8 @@
             grid-template: min-content 1fr min-content 1fr min-content / repeat(4, 1fr);
             margin-top: 13vh;
             padding: 0 6vw;
+
+            height: 87vh;
         }
 
         .col-3{
@@ -53,6 +64,10 @@
         .col-4{
             grid-column: 1 / span 4;
             grid-row: 4 / span 1;
+        }
+        .col-btn{
+            grid-column: 1 / span 4;
+            grid-row: 4 / span 1
         }
         .contenteButton{
             grid-column: 1 / span 4;

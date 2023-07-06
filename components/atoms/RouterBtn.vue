@@ -14,7 +14,7 @@ export default Vue.extend({
         return{
             routers:[
                 {name: 'Sobre', link: 'about'},
-                {name: 'Historico', link: 'historic'}
+                {name: 'Histórico', link: 'historic'}
             ]
         }
     },
@@ -39,5 +39,6 @@ export default Vue.extend({
     }
     a{
         background-color: var(--colorButton);
+        color: var(--labelInt);
     }
 </style>

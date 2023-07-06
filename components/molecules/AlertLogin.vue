@@ -1,9 +1,9 @@
 <template>
     <div class="containerLogin">
         <div>
-            <label for="">
+            <label for="e">
                 E-mail
-                <input id="" v-model="email" type="email" name="">
+                <input id="e" v-model="email" type="email" name="">
             </label>
             <div class="btn">
                 <button @click="MyEmail" >Entrar</button>

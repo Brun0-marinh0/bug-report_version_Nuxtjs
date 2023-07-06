@@ -1,6 +1,6 @@
 <template>
     <div>
-        oi
+        <TextAbout/>
     </div>
 </template>
 

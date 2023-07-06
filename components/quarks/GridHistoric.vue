@@ -10,8 +10,8 @@
         grid-template: 1fr / repeat(12, 1fr);
         gap: 1rem;
 
-        margin-top: 20vh;
-        padding-bottom: 20vh;
+        margin-top: 15vh;
+        padding-bottom: 15vh;
     }
     .gridCard{
         grid-column: 4 / span 6;
