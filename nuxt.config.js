@@ -64,6 +64,12 @@ export default {
     },
   },
 
+  ssr: false,
+  server: {
+    port: 3000, // valor padrão: 3000
+    host: '0.0.0.0', // valor padrão: localhost,
+    timing: false
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 }
