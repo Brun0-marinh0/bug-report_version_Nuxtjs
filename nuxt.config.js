@@ -60,7 +60,7 @@ export default {
     },
     icon:{
       source: '/icon/bugasIcon.svg',
-      filename: 'bugIcon.svg'
+      filename: 'bugasIcon.svg'
     },
   },
 
