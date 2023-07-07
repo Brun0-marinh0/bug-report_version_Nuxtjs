@@ -8,7 +8,7 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/icon/bugIcon.svg' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/icon/bugasIcon.svg' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -59,7 +59,7 @@ export default {
       lang: 'pt-br',
     },
     icon:{
-      source: '/icon/bugIcon.svg',
+      source: '/icon/bugasIcon.svg',
       filename: 'bugIcon.svg'
     },
   },

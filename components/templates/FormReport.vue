@@ -37,6 +37,8 @@
             <div class="contenteButton">
                 <button @click="send">Enviar</button>
             </div>
+            {{ img }}
+            {{ form.file }}
         </GridDefault>
     </div>
 </template>
@@ -62,6 +64,8 @@ export default Vue.extend({
             },
             warning: false,
             descriptionLength: 0,
+
+            clickFile: ''
         }
     },
     async fetch(){
@@ -78,6 +82,11 @@ export default Vue.extend({
                 }
             },
             deep: true
+        },
+        clickFile(newValue){
+            if(newValue){
+                this.img = URL.createObjectURL(newValue)
+            }
         }
     },
     methods:{
@@ -112,6 +121,8 @@ export default Vue.extend({
                     this.$toast.success('Enviado com sucesso!')
                 }
             }).finally (() => {
+                const file = document.getElementById("file") as HTMLTextAreaElement
+                file.value = ""
 
                 this.bg = ''
                 this.img = ''
@@ -129,35 +140,41 @@ export default Vue.extend({
             })
         },
         clearImg(){
+            const file = document.getElementById("file") as HTMLTextAreaElement
+            file.value = ""
+
             this.form.file = null
             this.img = ''
             this.bg = ''
         },
         fileMethods(e: any) {
+            this.loadingImage = false
             const file = e.target.files[0]
-            this.img = URL.createObjectURL(file)
-
+            this.clickFile = file
+            
             this.form.file = e.target.files[0]
 
             // imgSize 2mb
             const imgSize = 2 * 1024 * 1024 
             
-            this.loadingImage = false
             this.bg = '#262130'
-
-            if(this.form.file.size > imgSize){
+            
+            if(this.form.file && this.form.file.size > imgSize ){
                 this.$toast.warning('imagem muito grande :(')
                 this.img = ''
                 this.form.file = null
                 this.bg = ''
+                this.clickFile =''
             }
         },
         loadingImg(){
-            this.loadingImage = true
-
-            setTimeout(()=>{
-                this.loadingImage = false
-            }, 5000)
+            if(this.clickFile === ''){
+                this.loadingImage = true
+    
+                setTimeout(()=>{
+                    this.loadingImage = false
+                }, 5000)
+            }
         }
     }
 })
