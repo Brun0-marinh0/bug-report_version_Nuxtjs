@@ -37,8 +37,6 @@
             <div class="contenteButton">
                 <button @click="send">Enviar</button>
             </div>
-            {{ img }}
-            {{ form.file }}
         </GridDefault>
     </div>
 </template>
