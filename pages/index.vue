@@ -1,21 +1,13 @@
 <template>
-    <div>
-        <h1>oi</h1>
-    </div>
+  <div>
+    <FormReport/>
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
 export default Vue.extend({
-    data(){
-        return{
-
-        }
-    }
+  name: 'IndexPage',
 })
 </script>
-
-<style lang="scss" scoped>
-
-</style>

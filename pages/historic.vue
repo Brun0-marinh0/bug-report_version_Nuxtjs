@@ -1,7 +1,6 @@
 <template>
     <div>
-        <MainNavbar/>
-        <Nuxt/>
+        <HistoricList/>
     </div>
 </template>
 
@@ -9,7 +8,11 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-    
+    data(){
+        return{
+
+        }
+    }
 })
 </script>
 

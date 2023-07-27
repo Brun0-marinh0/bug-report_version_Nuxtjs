@@ -1,11 +1,11 @@
-# FROM node:16
+FROM node:16
 
-# WORKDIR /usr/api
+WORKDIR /usr/api
 
-# COPY package.json .
+COPY package.json .
 
-# COPY . .
+COPY . .
 
-# CMD npm install
+CMD npm install
 
-# EXPOSE 9801
+EXPOSE 9801

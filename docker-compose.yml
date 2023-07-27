@@ -1,15 +1,15 @@
-# version: '3.8'
-# services:
-#   nuxt_nuxt_bug_report:
-#     container_name: myLayout
-#     build: .
-#     restart: always
-#     command: "yarn prod"
-#     volumes:
-#       - vol_nuxt_bug_report:/usr/api
-#     ports:
-#       - 9801:3000
+version: '3.8'
+services:
+  nuxt_nuxt_bug_report:
+    container_name: nuxt_bug_report_container
+    build: .
+    restart: always
+    command: "yarn prod"
+    volumes:
+      - vol_nuxt_bug_report:/usr/api
+    ports:
+      - 9801:3000
 
-# volumes:
-#  vol_nuxt_bug_report:
-#   driver: local
+volumes:
+ vol_nuxt_bug_report:
+  driver: local
