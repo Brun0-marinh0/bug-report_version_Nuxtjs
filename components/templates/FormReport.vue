@@ -10,7 +10,7 @@
                 <div class="container col-3" :class="{warning}">
                     <label for="title">
                         Título
-                        <input type="text" name="" id="title" v-model="form.title">
+                        <input type="text" name="" id="title" v-model="form.title" minlength="10" maxlength="50">
                     </label>
                     <label for="description">
                         Descrição
@@ -61,7 +61,9 @@ export default Vue.extend({
                 file: null
             },
             warning: false,
+
             descriptionLength: 0,
+            titleLength: 0,
 
             clickFile: ''
         }
@@ -75,9 +77,16 @@ export default Vue.extend({
         form:{
             handler(newValue){
                 this.descriptionLength = newValue.description.length
+                this.titleLength = newValue.title.length
+
+                if(newValue.title.length === 50){
+                    this.$toast.info('Tamanho máximo para o título')
+                }
+
                 if(newValue.description.length === 300){
                     this.$toast.info('Tamanho máximo para a descrição')
                 }
+
             },
             deep: true
         },
@@ -89,10 +98,17 @@ export default Vue.extend({
     },
     methods:{
         async send(){
-            const textarea = document.getElementById('description') as HTMLTextAreaElement;
-            const minlength = textarea.minLength
+            const title = document.getElementById('title') as HTMLTextAreaElement
+            const minlengthTitle = title.minLength
 
-            if(this.descriptionLength >= 1 && this.descriptionLength <= minlength ){
+            const textarea = document.getElementById('description') as HTMLTextAreaElement
+            const minlengthTextarea = textarea.minLength
+
+            if(this.titleLength >= 1 && this.titleLength <= minlengthTitle ){
+                return this.$toast.warning('precisamos de mais informações no título')
+            }
+
+            if(this.descriptionLength >= 1 && this.descriptionLength <= minlengthTextarea ){
                 return this.$toast.warning('precisamos de mais informações na descrição')
             }
 

@@ -11,9 +11,9 @@
                     {{ myReport.description }}
                 </p>
             </div>
-            <div v-show="popUp" class="popUp">
+            <div v-show="popUp" class="popUp" @click="popUp = false">
                 <div class="contentClose">
-                    <img src="@/static/icon/close.svg" alt="" @click="popUp = false">
+                    <img src="@/static/icon/close.svg" alt="" >
                 </div>
                 <div class="contentImg">
                     <img :src="`http://185.209.179.96:9800/${myReport.image_path}`" alt="">
@@ -140,15 +140,18 @@ export default Vue.extend({
                 justify-content: flex-end;
                 padding: 0 1rem;
                 position: relative;
-                top: 2rem;
+                top: -1rem;
             }
 
             .contentImg{
-                height: max(30rem, 35vw);
-                
                 display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
                 img{
-                    height: 100%;
+                    max-width: 100%;
+                    max-height: 100%;
+                    object-fit: contain;
+                    
                 }
             }
         }
